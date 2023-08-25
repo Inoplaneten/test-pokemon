@@ -1,0 +1,41 @@
+@import "styles/mixins";
+@import "styles/variables";
+
+.select {
+    @include flex;
+    @include flex-col;
+    @include relative(1);
+    
+    max-width: 300px;
+    width: 100%;
+
+    &__btn {
+        @include inline-flex;
+        @include items-center;
+        @include justify-between;
+
+        width: 100%;
+        gap: 5px;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: left;
+        text-transform: capitalize;
+        color: $color-grey;
+        border-bottom: 1px solid $color-grey;
+        padding-bottom: 10px;
+
+        &:focus {
+            color: $color-secondary;
+            border-bottom-color: $color-secondary;
+        }
+
+        &.selected {
+            color: $color-secondary;
+        }
+
+        > svg {
+            transition-duration: $transition-duration;
+        }
+
+    }
+}

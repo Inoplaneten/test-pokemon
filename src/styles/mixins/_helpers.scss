@@ -1,0 +1,228 @@
+@import "./breakpoints";
+
+@mixin after {
+    &::after {
+        content: "";
+        display: inline-block;
+        @content;
+    }
+}
+  
+@mixin before {
+    &::before {
+        content: "";
+        display: inline-block;
+        @content;
+    }
+}
+  
+@mixin flex {
+    display: flex;
+    @content;
+}
+  
+@mixin inline-flex {
+    display: inline-flex;
+    @content;
+}
+
+@mixin flex-row {
+    flex-direction: row;
+    @content;
+}
+  
+@mixin flex-col {
+    flex-direction: column;
+    @content;
+}
+  
+@mixin flex-wrap {
+    flex-wrap: wrap;
+    @content;
+}
+  
+@mixin justify-between {
+    justify-content: space-between;
+    @content;
+}
+
+@mixin justify-around {
+    justify-content: space-around;
+    @content;
+}
+
+@mixin justify-center {
+    justify-content: center;
+    @content;
+}
+  
+@mixin justify-end {
+    justify-content: flex-end;
+}
+
+@mixin items-start {
+    align-items: flex-start;
+}
+
+@mixin items-center {
+    align-items: center;
+}
+
+@mixin items-end {
+    align-items: flex-end;
+}
+
+@mixin justify-normal {
+    justify-content: normal;
+}
+
+@mixin grid {
+    display: grid;
+    @content;
+}
+
+@mixin border($color) {
+    border: 2px solid $color;
+
+    @include min-device-pixel-ratio(2) {
+        border-width: 1px;
+    }
+
+    @include min-device-pixel-ratio(3) {
+        border-width: 0.66px;
+    }
+}
+  
+@mixin border-right($color) {
+    border-right: 2px solid $color;
+
+    @include min-device-pixel-ratio(2) {
+        border-right-width: 1px;
+    }
+
+    @include min-device-pixel-ratio(3) {
+        border-right-width: 0.66px solid $color;
+    }
+}
+  
+@mixin border-bottom($color) {
+    border-bottom: 2px solid $color;
+
+    @include min-device-pixel-ratio(2) {
+        border-bottom-width: 1px;
+    }
+
+    @include min-device-pixel-ratio(3) {
+        border-bottom-width: 0.66px solid $color;
+    }
+}
+  
+@mixin border-top($color) {
+    border-top: 2px solid $color;
+
+    @include min-device-pixel-ratio(2) {
+        border-top-width: 1px;
+    }
+
+    @include min-device-pixel-ratio(3) {
+        border-top-width: 0.66px solid $color;
+    }
+}
+  
+@mixin radius-circle {
+    border-radius: 50%;
+}
+
+@mixin border-link($color) {
+    a {
+        display: inline-block;
+        position: relative;
+  
+        @include after {
+            width: 100%;
+            height: 2px;
+            background-color: $color;
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+        }
+
+        @include hover {
+            &:hover {
+                @include min-media-lg {
+                    &::after {
+                        width: 0;
+                    }
+                }
+            }
+        }
+  
+        &:active {
+            &::after {
+                width: 0;
+            }
+        }
+    }
+}
+  
+@mixin not-border-link($color) {
+    a {
+        display: inline-block;
+        position: relative;
+
+        @include after {
+            width: 0;
+            height: 2px;
+            background-color: $color;
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+        }
+
+        @include hover {
+            &:hover {
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+  
+        &:active {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}
+  
+@mixin relative($z-index) {
+    position: relative;
+    z-index: $z-index;
+}
+  
+@mixin position-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+  
+@mixin content {
+    p {
+        &:not(:last-of-type) {
+            margin-bottom: 16px;
+        }
+    }
+  
+    a {
+        @include border-bottom(currentColor);
+
+        &:hover {
+            @include border-bottom(transparent);
+        }
+
+        &:active {
+            @include border-bottom(transparent);
+        }
+    }
+}

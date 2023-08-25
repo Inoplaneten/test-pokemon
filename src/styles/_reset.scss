@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+input, 
+textarea {
+    appearance: none;
+}
+
+input,
+button {
+    padding: 0;
+}
+
+input,
+button,
+textarea,
+select {
+    background-color: transparent;
+    font: inherit;
+    outline: none;
+}
+
+input,
+textarea,
+select {
+    color: inherit;
+    border: none;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration,
+input[type="file"] {
+    display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: inherit;
+    background-color: transparent !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input[type="range"] {
+    cursor: pointer;
+    margin: 0;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+    color: inherit;
+  
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+strong {
+    font-weight: 700;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: top center;
+}

@@ -1,0 +1,11 @@
+@import "styles/variables/colors";
+
+.footer {
+    padding: 32px;
+    background-color: $color-secondary;
+    color: $color-primary;
+
+    &Content {
+        text-align: center;
+    }
+}

@@ -1,0 +1,31 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    padding: 30px 0;
+    font-size: 20px;
+    transition: background-color $transition-duration;
+    height: 87px;
+
+    &.active {
+        background-color: #000;
+        color: $color-primary;
+    }
+
+    &Content {
+        @include flex;
+        @include items-center;
+        @include justify-between;
+    }
+}
+
+.logo {
+    position: relative;
+    z-index: 1;
+    color: inherit;
+}

@@ -1,0 +1,49 @@
+@import "styles/mixins";
+@import "styles/variables";
+
+.options {
+    @include flex;
+    @include flex-col;
+
+    width: 100%;
+    transition: height $transition-duration;
+    height: 0;
+    border-radius: 6px;
+    background-color: #fff;
+    overflow-y: scroll;
+    box-shadow: $shadow-small;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    z-index: 10;
+
+    &.open {
+        height: 250px;
+    }
+
+    &__btn {
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+        color: $color-grey;
+        padding: 15px;
+        text-transform: capitalize;
+
+        &:active {
+            background-color: $color-secondary;
+            color: $color-primary;
+        }
+
+        @include hover {
+            &:hover {
+                background-color: $color-grey;
+                color: $color-primary;
+            }
+        }
+
+        &.selected {
+            background-color: $color-secondary;
+            color: $color-primary;
+        }
+    }
+}

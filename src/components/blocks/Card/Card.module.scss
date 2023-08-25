@@ -1,0 +1,20 @@
+@import "styles/mixins";
+@import "styles/variables";
+
+.card {
+    @include flex;
+    @include flex-col;
+    @include items-center;
+    @include justify-center;
+
+    text-align: center;
+    min-height: 150px;
+    border-radius: 12px;
+    background-color: $color-primary;
+    box-shadow: $shadow-small;
+    padding: 24px;
+
+    &__title {
+        text-transform: uppercase;
+    }
+}

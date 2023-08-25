@@ -1,0 +1,97 @@
+@import "styles/mixins";
+@import "styles/variables";
+
+.navigation {
+    @include flex;
+    @include flex-col;
+    @include items-center;
+    @include justify-center;
+
+    width: 100%;
+    height: calc(100vh - 87px);
+    background-color: $color-secondary;
+    position: fixed;
+    top: 87px;
+    right: -100%;
+    overflow: hidden auto;
+    transition-duration: $transition-duration;
+    padding: 90px 0 24px;
+    color: $color-primary;
+
+    &.scroll {
+        @include media-lg {
+            color: $color-primary;
+        }
+    }
+
+    &.active {
+        background-color: $color-secondary;
+        right: 0;
+
+        @include media-lg {
+            background-color: transparent;
+            top: auto;
+            right: auto;
+
+            &.active {
+                color: $color-primary;
+            }
+        }
+    }
+
+    @include media-lg {
+        @include flex-row;
+
+        width: auto;
+        height: auto;
+        position: static;
+        background-color: transparent;
+        color: $color-secondary;
+        padding: 0;
+    }
+
+    &__list {
+        @include flex;
+        @include flex-col;
+        @include items-center;
+
+        @include media-lg {
+            @include flex-row;
+        }
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 25px;
+        }
+
+        @include media-lg {
+            &:not(:last-child) {
+                margin: 0 16px 0 0;
+            }
+        }
+
+        > a {
+            display: inline-block;
+            color: $color-primary;
+            border-bottom: 1px solid transparent;
+
+            @include media-lg {
+                color: $color-secondary;
+            }
+    
+            &:active,
+            &.active {
+                /* stylelint-disable-next-line value-keyword-case */
+                border-bottom-color: currentColor;
+            }
+    
+            @include hover {
+                &:hover {
+                    /* stylelint-disable-next-line value-keyword-case */
+                    border-bottom-color: currentColor;
+                }
+            }
+        }
+    }
+}
